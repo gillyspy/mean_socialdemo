@@ -1,2 +1,76 @@
-angular.module("app",[]);var app=angular.module("app",[]);angular.module("app").controller("PostCtrl",["$scope","PostsSvc",function(t,s){t.addPost=function(){t.postBody&&s.create({username:"gillyspy",body:t.postBody}).success(function(s){t.posts.unshift(s),t.postBody=null})},s.fetch().success(function(s){t.posts=s})}]),angular.module("app").service("PostsSvc",["$http",function(t){this.fetch=function(){return t.get("/api/posts")},this.create=function(s){return t.post("/api/posts",s)}}]);
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1vZHVsZS5qcyIsImFwcC5qcyIsInBvc3RzLmN0cmwuanMiLCJwb3N0cy5zdmMuanMiXSwibmFtZXMiOlsiYW5ndWxhciIsIm1vZHVsZSIsImFwcCIsImNvbnRyb2xsZXIiLCIkc2NvcGUiLCJQb3N0c1N2YyIsImFkZFBvc3QiLCJwb3N0Qm9keSIsImNyZWF0ZSIsInVzZXJuYW1lIiwiYm9keSIsInN1Y2Nlc3MiLCJwb3N0IiwicG9zdHMiLCJ1bnNoaWZ0IiwiZmV0Y2giLCJzZXJ2aWNlIiwiJGh0dHAiLCJ0aGlzIiwiZ2V0Il0sIm1hcHBpbmdzIjoiQUFDQUEsUUFBQUMsT0FBQSxTQ0RBLElBQUFDLEtBQUFGLFFBQUFDLE9BQUEsU0NDQUQsU0FBQUMsT0FBQSxPQUNBRSxXQUFBLFlBQUEsU0FBQSxXQUFBLFNBQUFDLEVBQUFDLEdBQ0FELEVBQUFFLFFBQUEsV0FDQUYsRUFBQUcsVUFDQUYsRUFBQUcsUUFDQUMsU0FBQSxXQUNBQyxLQUFBTixFQUFBRyxXQUNBSSxRQUFBLFNBQUFDLEdBQ0FSLEVBQUFTLE1BQUFDLFFBQUFGLEdBQ0FSLEVBQUFHLFNBQUEsUUFNQUYsRUFBQVUsUUFDQUosUUFBQSxTQUFBRSxHQUNBVCxFQUFBUyxNQUFBQSxPQ2hCQWIsUUFBQUMsT0FBQSxPQUNBZSxRQUFBLFlBQUEsUUFBQSxTQUFBQyxHQUdBQyxLQUFBSCxNQUFBLFdBQ0EsTUFBQUUsR0FBQUUsSUFBQSxlQUlBRCxLQUFBVixPQUFBLFNBQUFJLEdBQ0EsTUFBQUssR0FBQUwsS0FBQSxhQUFBQSIsImZpbGUiOiJhcHAuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvL2luc3RhbnRpYXRlIHRoZSBkZWNsYXJlZCBhbmd1bGFyIGFwcFxuYW5ndWxhci5tb2R1bGUoJ2FwcCcsW10pO1xuIiwidmFyIGFwcCA9IGFuZ3VsYXIubW9kdWxlKCdhcHAnLCBbXSk7XG4iLCIvLyBjcmVhdGUgYSBjb250cm9sbGVyIGFuZCBpbmplY3Qgb3VyIHNlcnZpY2VcbmFuZ3VsYXIubW9kdWxlKCdhcHAnKVxuICAgIC5jb250cm9sbGVyKCdQb3N0Q3RybCcsZnVuY3Rpb24oJHNjb3BlLCBQb3N0c1N2Yyl7XG4gICAgJHNjb3BlLmFkZFBvc3QgPSBmdW5jdGlvbigpe1xuXHRpZigkc2NvcGUucG9zdEJvZHkpe1xuXHQgICAgUG9zdHNTdmMuY3JlYXRlKHtcblx0XHR1c2VybmFtZSA6ICdnaWxseXNweScsXG5cdFx0Ym9keSA6ICRzY29wZS5wb3N0Qm9keVxuXHQgICAgfSkuc3VjY2VzcyggZnVuY3Rpb24ocG9zdCkge1xuXHRcdCRzY29wZS5wb3N0cy51bnNoaWZ0KHBvc3QpO1xuXHRcdCRzY29wZS5wb3N0Qm9keSA9IG51bGw7XG5cdCAgICB9KSAvLyBzdWNjZXNzXG5cdH0gLy8gZW5kaWY7XG4gICAgfSAvLyBlbmQgYWRkUG9zdDtcblxuICAgIC8vIHZpYSBBUEkgc2VydmljZVxuICAgIFBvc3RzU3ZjLmZldGNoKClcblx0LnN1Y2Nlc3MoIGZ1bmN0aW9uKHBvc3RzKXtcblx0JHNjb3BlLnBvc3RzID0gcG9zdHM7XG4gICAgfSk7XG5cbn0pOyAvLyBlbmQgY29udHJvbGxlclxuXG4iLCJcbi8vIG5nIHNlcnZpY2UgZm9yIGxvYWRpbmcgcG9zdHNcbmFuZ3VsYXIubW9kdWxlKCdhcHAnKVxuICAgIC5zZXJ2aWNlKCdQb3N0c1N2YycsIGZ1bmN0aW9uKCRodHRwKXtcblxuICAgIC8vIGFkZCBhIGZldGNoIG1ldGhvZCB0byBvdXIgc2VydmljZVxuICAgIHRoaXMuZmV0Y2ggPSBmdW5jdGlvbigpe1xuXHRyZXR1cm4gJGh0dHAuZ2V0KCcvYXBpL3Bvc3RzJyk7XG4gICAgfSAvLyBmZXRjaDtcbiAgICBcbiAgICAvLyBhZGQgYSBjcmVhdGUgbWV0aG9kIHRvIG91ciBzZXJ2aWNlXG4gICAgdGhpcy5jcmVhdGUgPSBmdW5jdGlvbihwb3N0KXtcblx0cmV0dXJuICRodHRwLnBvc3QoJy9hcGkvcG9zdHMnLHBvc3QpO1xuICAgIH0gLy9jcmVhdGU7XG59KTsvLyBzZXJ2aWNlKClcblxuXG4iXX0=
+//instantiate the declared angular app
+angular.module('app', [
+    'ngRoute'
+]);
+// create a controller and inject our service
+angular
+    .module('app')
+    .controller('PostsCtrl', function ($scope, PostsSvc) {
+        console.log('PostsCtrl controller');
+        $scope.addPost = function () {
+            if ($scope.postBody) {
+                PostsSvc.create({
+                    username: 'gillyspy',
+                    body: $scope.postBody
+                }).success(function (post) {
+                    $scope.posts.unshift(post);
+                    $scope.postBody = null;
+                }) // success
+            } // endif;
+        } // end addPost;
+        ;
+
+        // via API service
+        PostsSvc.fetch()
+            .success(function (posts) {
+                $scope.posts = posts;
+            })
+        ;
+
+    })
+; // end controller
+
+
+// ng service for loading posts
+angular.module('app')
+    .service('PostsSvc', function ($http) {
+
+        // add a fetch method to our service
+        this.fetch = function () {
+            return $http.get('/api/posts');
+        }; // fetch;
+
+        // add a create method to our service
+        this.create = function (post) {
+            return $http.post('/api/posts', post);
+        }; //create;
+
+    });// service()
+
+
+angular.module('app')
+    .config(
+        [
+            '$routeProvider',
+            function ($routeProvider) {
+                $routeProvider
+                    .when('/', {
+                        controller: 'PostsCtrl',
+                        templateUrl: 'posts.html'
+                    }) // root
+                    .when('/register', {
+                        controller: 'RegisterCtrl',
+                        templateUrl: 'register.html'
+                    }) // register
+                    .when('/login', {
+                        controller: 'LoginCtrl',
+                        templateUrl: 'login.html'
+                    })
+                    .otherwise({
+                        redirectTo: '/register'
+                    })
+                ;// default is root
+            }
+        ]
+    ); // config;
+//module ;
