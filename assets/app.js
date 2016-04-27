@@ -2,6 +2,16 @@
 angular.module('app', [
     'ngRoute'
 ]);
+angular.module('app')
+    .controller('LoginCtrl', function ($scope, UserSvc) {
+        $scope.login = function (username, password) {
+            UserSvc.login(username, password)
+                .then(function (user) {
+                    console.log(user);
+                });
+        };
+    });
+
 // create a controller and inject our service
 angular
     .module('app')
@@ -15,7 +25,7 @@ angular
                 }).success(function (post) {
                     $scope.posts.unshift(post);
                     $scope.postBody = null;
-                }) // success
+                }); // success
             } // endif;
         } // end addPost;
         ;
@@ -48,6 +58,7 @@ angular.module('app')
     });// service()
 
 
+
 angular.module('app')
     .config(
         [
@@ -74,3 +85,23 @@ angular.module('app')
         ]
     ); // config;
 //module ;
+angular.module('app')
+    .service('UserSvc', function ($http) {
+        var svc = this;
+        svc.getUser = function () {
+            return $http.get('/api/users', {
+                headers: {'X-Auth': this.token}
+            });
+        };
+        svc.login = function (username, password) {
+            return $http.post('/api/sessions', {
+                    username: username,
+                    password: password
+                })
+                .then(function (val) {
+                    svc.token = val.data;
+                    return svc.getUser();
+                });
+        }
+    })
+;
