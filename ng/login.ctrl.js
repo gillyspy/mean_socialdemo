@@ -2,9 +2,10 @@ angular.module('app')
     .controller('LoginCtrl', function ($scope, UserSvc) {
         $scope.login = function (username, password) {
             UserSvc.login(username, password)
-                .then(function (user) {
-                    //TODO: do more than print out the user
-                    console.log('print out the user', user);
+                .then(function (response) {
+
+                    // bubble up the logged in response info (Application controller will listen for it)
+                    $scope.$emit('login', response.data);
                 });
         };
     });
