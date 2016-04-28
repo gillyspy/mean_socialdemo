@@ -3,7 +3,8 @@ angular.module('app')
         $scope.login = function (username, password) {
             UserSvc.login(username, password)
                 .then(function (user) {
-                    console.log(user);
+                    //TODO: do more than print out the user
+                    console.log('print out the user', user);
                 });
         };
     });
