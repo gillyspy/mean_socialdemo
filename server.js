@@ -8,6 +8,9 @@ app.use(bodyParser.json());
 //serve up (GET) resources from root;
 //app.use( '/statically', express.static(__dirname));
 
+// wire in auth middleware always
+app.use(require('./auth'));
+
 // pull in our API controller;
 app.use('/api/posts', require('./controllers/api/posts'));
 

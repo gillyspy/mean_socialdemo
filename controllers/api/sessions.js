@@ -22,7 +22,7 @@ router.post('/', function (req, res, next) {
                 }
 
                 if (!user) {
-                    return res.send(401)
+                    return res.sendStatus(401)
                 }
 
                 //otherwise
