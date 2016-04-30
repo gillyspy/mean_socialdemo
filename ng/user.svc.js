@@ -2,21 +2,21 @@ angular.module('app')
     .service('UserSvc', function ($http) {
         var svc = this;
         svc.getUser = function () {
+            if (!!window.localStorage.token) {
+                $http.defaults.headers.common['X-Auth'] = window.localStorage.token;
+            }
             return $http.get('/api/users')
                 .then(function (response) {
                     return response.data
                 });
         };
 
-
         svc.createUser = function (username, password) {
             //TODO:
-            console.log('user.svc', username, password);
             return $http.post('/api/users', {
                 username: username,
                 password: password
-            }).then(function (response) {
-                console.log('user.svc2 ', response.config);
+            }).then(function () {
                 return svc.login(username, password);
             });
 
@@ -28,7 +28,9 @@ angular.module('app')
                     password: password
                 })
                 .then(function (response) {
-                    svc.token = response.data;
+                    //TODO: store this token in something that persists
+                    window.localStorage.token = response.data;
+
                     // send up the X-auth request on ALL requests
                     //NOTE: I don't understand yet how this is relevant to all requests yet
                     $http.defaults.headers.common['X-Auth'] = response.data;
