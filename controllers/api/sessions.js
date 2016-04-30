@@ -24,7 +24,7 @@ router.post('/', function (req, res, next) {
                 if (!user) {
                     return res.sendStatus(401)
                 }
-
+            console.log('session.js');
                 //otherwise
                 bcrypt.compare(req.body.password, user.password, function (err, valid) {
                     if (err) {

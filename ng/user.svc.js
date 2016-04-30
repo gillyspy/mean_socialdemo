@@ -8,6 +8,20 @@ angular.module('app')
                 });
         };
 
+
+        svc.createUser = function (username, password) {
+            //TODO:
+            console.log('user.svc', username, password);
+            return $http.post('/api/users', {
+                username: username,
+                password: password
+            }).then(function (response) {
+                console.log('user.svc2 ', response.config);
+                return svc.login(username, password);
+            });
+
+        };
+
         svc.login = function (username, password) {
             return $http.post('/api/sessions', {
                     username: username,

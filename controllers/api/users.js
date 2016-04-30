@@ -28,6 +28,7 @@ router.get('/', function (req, res, next) {
 // create a new user
 router.post('/', function (req, res, next) {
 
+    console.log('api -> users', req.body);
     var user = new User({username: req.body.username});
     bcrypt.hash(req.body.password, 10, function (err, hash) {
         if (err) {
@@ -38,7 +39,7 @@ router.post('/', function (req, res, next) {
             if (err) {
                 return next(err);
             }
-            res.send(201);
+            res.sendStatus(201);
         });
     });
 }); // post ;
